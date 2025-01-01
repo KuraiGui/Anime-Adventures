@@ -1,3 +1,7 @@
+; huge thanks to:
+; raynnpjl for contributing the card selector
+; yuh for heavily inspiring  the macro + some functions
+
 #Requires AutoHotkey v2.0
 #Include %A_ScriptDir%\Lib\gui.ahk
 #Include %A_ScriptDir%\Lib\FindText.ahk
@@ -332,9 +336,8 @@ LoadedLoop() {
               break
             }
             Reconnect()
-    }
-    
-    }
+}
+}
 
 StartedLoop() {
     loop {
@@ -367,6 +370,8 @@ CheckForLobbyButton() {
           return true
         }
 }
+
+    
     Sleep 1200
     SendInput("{Enter}")
     Sleep 250
@@ -400,7 +405,7 @@ AntiCaptcha() {
 
         ; Clean up the captcha string
         captcha := StrReplace(ocrResult.Text, " ")  ; Remove spaces
-        if (StrLen(captcha) <= 1 || RegExMatch(captcha, "[A-Z0-9]")) {
+        if (StrLen(captcha) <= 1 || RegExMatch(captcha, "[A-Z]")) {
             AddToLog("invalid captcha retrying")
             return RetryCaptcha()  ; Retry if string length <= 1 or contains uppercase/numbers
         }
