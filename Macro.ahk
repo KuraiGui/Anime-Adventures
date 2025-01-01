@@ -1,7 +1,3 @@
-﻿; huge thanks to:
-; raynnpjl for contributing the card selector
-; yuh for heavily inspiring  the macro + some functions
-
 #Requires AutoHotkey v2.0
 #Include %A_ScriptDir%\Lib\gui.ahk
 #Include %A_ScriptDir%\Lib\FindText.ahk
